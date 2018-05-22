@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>연습문제 1-2</h1>
+    <script>
+        // BMI를 계산하는 프로그램을 작성해 봅시다.
+        
+        var weight = Number(prompt("몸무게를 적으세요.(단위 kg)"));
+        var height = Number(prompt("신장을 적으세요.(단위 cm)"))/100;
+
+        var BMI = weight / (height * height);
+
+        document.write("당신의 BMI지수는 " + BMI + "입니다<br>");
+        if(BMI >= 0 && BMI < 18.5) document.write("당신은 저체중입니다.")
+        else if(BMI >= 18.5 && BMI < 23) document.write("당신은 정상입니다");
+        else if(BMI >= 23 && BMI < 25) document.write("당신은 과체중입니다");
+        else if(BMI >= 25 && BMI < 30) document.write("당신은 비만입니다");
+        else if(BMI >= 30) document.write("당신은 고도비만입니다");
+        else document.write("당신의 정체는 무엇이냐?");
+
+    </script>
+</body>
+</html>
