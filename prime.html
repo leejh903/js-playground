@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Prime</title>
+</head>
+<body>
+    <h2>연습문제2</h2>
+    <p>입력한 숫자의 소수 판별 문제</p>
+    <script>
+        var num = Number(prompt("2이상의 정수를 입력해주세요"));
+        
+        var isPrime = Boolean(true);
+        for(var i=2; i<num; i++){
+            if(num % i === 0){
+                document.write("이 수는 소수가 아닙니다");
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime) document.write("이 수는 소수입니다");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>반복문 예제 1 - 1</h2>
+    <p>사용자가 입력한 수들의 갯수와 합 구하기</p>
+    <script>
+        var sum = 0;
+        var cnt = 0;
+        var num = prompt("수를 입력해주세요(종료 : 0)");
+        while(num != "0"){
+            sum = sum + Number(num);
+            num = prompt("수를 입력해주세요");
+            cnt++;
+            console.log(cnt, num, sum);
+        }
+
+        document.write("수의 합은 " + sum + " 이고 개수는 " + cnt + " 입니다");
+        
+
+        // 강사님 풀이
+        // count가 -1부터 시작해줘도 되는 이유는 종료시 0적을 때 하나 증가시키기 때문
+
+        // var sum = 0;
+        // var n = -1;
+        // var count = -1;
+        // while(n != 0){
+        //     n = Number(prompt("숫자 입력 " ));
+        //     sum += n;
+        //     count++;
+        //     console.log(count, n, sum);
+        // }
+        // document.write("수의 합은 " + sum + " 이고 개수는 " + count + " 입니다");
+    </script>
+</body>
+</html>

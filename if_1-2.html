@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <h2>if 예제 1 - 2</h2>
+    <p>대소문자 판별 문제</p>
+    <script>
+        var string = prompt("문자열을 입력해주세요!");
+        var ustr = string.toUpperCase();
+        var lstr = string.toLowerCase();
+
+        if(string === ustr){
+            console.log("모두 대문자로 입력받았습니다");
+        }else if(string === lstr){
+            console.log("모두 소문자로 입력받았습니다");
+        }else{
+            console.log("일반 문장입니다");
+        }
+    </script>
+</body>
+</html>
