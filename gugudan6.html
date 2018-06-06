@@ -7,14 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>반복문을 사용한 구구단 연습</h1>
+    출력할 단 수 : <input type="text" id="num"><br>
+    <button onclick="runGugudan()">확인</button>
     <script>
-            var strN = prompt("몇 단을 출력할까요?");
-            var n = Number(strN);
+        function runGugudan(){
+            var n = document.getElementById("num").value;
             document.write("<h1>구구단 " + n + "단 구현 - 반복문 사용</h1><br>")
 
             for(var i=1; i<10; i++){
                 document.write(n + " * " + i + " = " + n*i + "<br>");
             }
+        }
     </script>
 </body>
 </html>
