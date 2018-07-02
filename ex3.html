@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>소수 출력하기</title>
+</head>
+<body>
+    <h2>소수 출력하기</h2>
+    최대 수 : <input type="text" id="num"><br>
+    <button onclick="runPrime()">확인</button>
+    <script>
+        function runPrime(){
+            var max_num = Number(document.getElementById("num").value);
+
+            numbers = {};
+            numbers.all = [];
+            numbers.prime = [];
+
+            numbers.isPrime = function(number){  // 소수 판별
+                for(var i=2; i<=number; i++){
+                    if(i == number) return true;
+                    if(number % i == 0) return false;
+                }
+            };
+
+            numbers.addPrime = function(number){  // 소수 배열에 넣기
+                this.prime.push(number);
+            };
+
+            numbers.getAllPrimes = function(){  // 소수 배열에서 모두 출력하기
+                var prime_num = numbers.prime.length;
+                document.write("<h3>소수 출력 : <h3>");
+                for(var i=0; i<prime_num; i++){
+                    document.write(this.prime[i] + "  ");
+                }                
+            };
+
+            numbers.addAll = function(max_num){  // 사용자 지정한 수까지 모든 수를 number.all 배열에 넣기
+                for(var i=2; i<=max_num; i++){
+                    this.all.push(i);
+                }
+            };
+
+
+            numbers.addAll(max_num);
+            for(var i=0; i<numbers.all.length; i++){
+                var number = numbers.all[i];
+                var flag = numbers.isPrime(number);
+                if(flag) numbers.addPrime(number);
+            }
+            numbers.getAllPrimes();
+        }
+    </script>
+</body>
+</html>
