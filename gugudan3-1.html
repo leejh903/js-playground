@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>함수를 활용해 구구단 다시 구현</title>
+</head>
+<body>
+    <h3>함수를 활용해 구구단 다시 구현</h3>
+    <script>
+        function calculrate(num) {
+            var results = [];
+            var length = 9;
+            for (var i = 1; i <= length; i++) {  // 계산 결과를 배열에 저장
+                results.push(num * i);
+            }
+            return results
+        }
+
+        function print(results, num) {  // 계산 결과를 화면에 출력
+            document.write("<h4> - " + num + "단 구현하기 -</h4>")
+            for(var i = 0; i < results.length; i++){
+                document.write(num + " X " + (i+1) + " = " + results[i] + "<br>");
+            }
+        }
+        function main() {
+            // 나머지 코드들은 여기에 
+            //var num = Number(prompt("입력받고 싶은 단을 입력하세요"));
+            for(var i=2; i<=9; i++){
+                var num = i;
+                var results = calculrate(num);
+                print(results, num);
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
