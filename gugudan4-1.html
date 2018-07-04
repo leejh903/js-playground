@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>객체를 이용한 구구단 구현</h3>
+    <script>
+        gugudan = {}
+
+        //var n = Number(prompt("출력하고 싶은 구구단 수를 입력하세요!"));
+        
+        gugudan.num;
+        gugudan.ret = [];
+        gugudan.calculate = function() {
+            for(var i = 1; i < 10; i++){
+                this.ret[i] = this.num * i;
+            }
+        }
+        gugudan.print = function(){
+            document.write("<h3>" + this.num + "단 구현하기</h3>")
+            for(var i = 1; i < 10; i++){
+                document.write(this.num + " * " + i + " = " + this.ret[i] + "<br>");
+            }
+        }
+
+        function main(){
+            for(var i=2; i<10; i++){
+                gugudan.num = i;
+                gugudan.calculate();
+                gugudan.print();
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
