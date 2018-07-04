@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>추가미션 - 사용자 지정으로 구구단 구현하기</h3>
+    <script>
+        var gugudan = {};
+        gugudan.str = prompt("사용자 지정한 구구단 정의에 따른 수를 입력하세요.");
+        gugudan.dan = gugudan.str.split(",")[0];
+        gugudan.length = gugudan.str.split(",")[1];
+        gugudan.result = [];
+        gugudan.current = -1;
+
+        gugudan.calculate = function() {
+            for(var i=2; i<=this.length; i++){
+                this.result[i] = this.current * i;
+            }
+        }
+        gugudan.print = function(){
+            document.write("<h3>" + this.current + "단 구현하기<h3>");
+            for(var i=2; i<=this.length; i++){
+                document.write(this.current + " * " + i + " = " + this.result[i] + "<br>");
+            }
+        }
+
+        function main(){
+            for(var i = 2; i <= gugudan.dan; i++){
+                gugudan.current = i;
+                gugudan.calculate();
+                gugudan.print();
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
