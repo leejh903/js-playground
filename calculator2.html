@@ -21,10 +21,13 @@
             var num2 = Number(string_num.split(",")[1]);
             
             var output = document.getElementById('output');
-            output.innerHTML = num1 + " + " + num2 + " = " + (num1 + num2) + "<br>" + 
-                               num1 + " - " + num2 + " = " + (num1 - num2) + "<br>" + 
-                               num1 + " * " + num2 + " = " + (num1 * num2) + "<br>" + 
-                               num1 + " / " + num2 + " = " + (num1 / num2);
+            var str = "";
+            str += num1 + " + " + num2 + " = " + (num1 + num2) + "<br>";
+            str += num1 + " - " + num2 + " = " + (num1 - num2) + "<br>";
+            str += num1 + " * " + num2 + " = " + (num1 * num2) + "<br>";
+            str += num1 + " / " + num2 + " = " + (num1 / num2);
+
+            output.innerHTML = str;
         }
     </script>
 </body>
