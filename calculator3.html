@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>값 입력 및 사칙연산</h1>
+    <div id='calculator'>
+        값 2개를 입력해주세요<br>
+        <input id='input1' type='text'><br>
+        <input id='input2' type='text'><br>
+        <select name='op' id='op'>
+            <option value='더하기'>+</option>
+            <option value='빼기'>-</option>
+            <option value='곱하기'>*</option>
+            <option value='나누기'>/</option>
+        </select> &nbsp;
+        <button id='btn_num' onclick='cal_num()'>계산하기</button>
+        <p id='output'></p>
+    </div>
+    <script>
+        var cal_num = function(){
+            var str1 = document.getElementById('input1').value;
+            var str2 = document.getElementById('input2').value;
+            var num1 = Number(str1);
+            var num2 = Number(str2);
+            var opt = document.getElementById('op');
+            var option = opt.options[opt.selectedIndex].text;
+
+            var output = document.getElementById('output');
+            var str = "";
+            // if-else문을 이용한 조건문
+            if(option === '+') str += num1 + " + " + num2 + " = " + (num1 + num2);
+            else if(option === '-') str += num1 + " - " + num2 + " = " + (num1 - num2);
+            else if(option === '*') str += num1 + " * " + num2 + " = " + (num1 * num2);
+            else str += num1 + " / " + num2 + " = " + (num1 / num2);
+
+            output.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
