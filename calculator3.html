@@ -32,11 +32,13 @@
 
             var output = document.getElementById('output');
             var str = "";
-            // if-else문을 이용한 조건문
-            if(option === '+') str += num1 + " + " + num2 + " = " + (num1 + num2);
-            else if(option === '-') str += num1 + " - " + num2 + " = " + (num1 - num2);
-            else if(option === '*') str += num1 + " * " + num2 + " = " + (num1 * num2);
-            else str += num1 + " / " + num2 + " = " + (num1 / num2);
+            // switch문을 이용한 조건문
+            switch(option){
+                case '+': str += num1 + " + " + num2 + " = " + (num1 + num2); break;
+                case '-': str += num1 + " - " + num2 + " = " + (num1 - num2); break;
+                case '*': str += num1 + " * " + num2 + " = " + (num1 * num2); break;
+                default: str += num1 + " / " + num2 + " = " + (num1 / num2);
+            }
 
             output.innerHTML = str;
         }
