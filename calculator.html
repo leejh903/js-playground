@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculator</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>문자열 계산기 구현하기</h1>
-    <div id='output'></div> 
-    <script>
-        function main(){
-            var out = document.getElementById('output');
-            out.innerHTML = "계산기 구현하기 - 기초";
+    <h3>문자열 계산기 시작하기</h3>
+    <div id='calculator'>계산하고 싶은 수를 입력하세요<br>
+        <input type='text' id='input_num'>
+        <button id='btn_num' onclick='cal_num()'>계산</button>
+        <br><br>
+        결과창 <input type='number' id='output_num'>
+    </div>
 
-            console.log(10 + 3);
-            console.log(10 - 3);
-            console.log(10 * 3);
-            console.log(10 / 3);
-        }
-        main();
-    </script>
+    <script src='string_calculator.js'></script>
 </body>
 </html>
