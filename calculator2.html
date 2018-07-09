@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>값 입력 및 사칙연산</h1>
+    <div id='calculator'>
+        값 2개를 입력해주세요(,로 구분!)<br>
+        <input id='input' type='text'>
+        <button id='btn_num' onclick='cal_num()'>계산</button>
+        <p id='output'></p>
+    </div>
+    <script>
+        var cal_num = function(){
+            var string_num = document.getElementById('input').value;
+            var num1 = Number(string_num.split(",")[0]);
+            var num2 = Number(string_num.split(",")[1]);
+            
+            var output = document.getElementById('output');
+            output.innerHTML = num1 + " + " + num2 + " = " + (num1 + num2) + "<br>" + 
+                               num1 + " - " + num2 + " = " + (num1 - num2) + "<br>" + 
+                               num1 + " * " + num2 + " = " + (num1 * num2) + "<br>" + 
+                               num1 + " / " + num2 + " = " + (num1 / num2);
+        }
+    </script>
+</body>
+</html>
