@@ -17,12 +17,12 @@
         input.getFirstValue = function(){
             var first_num = Number(prompt("첫번째 숫자를 입력하세요"));
             return first_num;
-        }
+        };
         input.getSecondValue = function(){
             var nth_num = Number(prompt(this.n + "번째 수를 입력하세요(종료시 q입력)"));
             this.n++;
             return nth_num;
-        }
+        };
         input.getOperator = function(){
             while(1){
                 var operator = prompt("연산자를 입력하세요(종료시 q입력)");
@@ -30,7 +30,7 @@
                 alert("올바른 연산자를 입력해주세요!");
             }
             return operator;
-        }
+        };
 
         calculator = {};
         calculator.calculate = function(ret, opt, next){
@@ -42,17 +42,17 @@
                 default : ret = 'X'
             }
             return ret;
-        }
+        };
 
         output = {};
+        output.out = document.getElementById('output');
         output.print = function(ret){
-            var out = document.getElementById('output');
             if(ret != 'X'){
-                out.innerHTML = "계산결과 : " + ret;
+                this.out.innerHTML = "계산결과 : " + ret;
             } else {
-                out.innerHTML = "계산도중 오류발생!";
+                this.out.innerHTML = "계산도중 오류발생!";
             }
-        }
+        };
 
         function main(){
             var result = input.getFirstValue();  // 첫번째 값 받음
@@ -62,7 +62,7 @@
                     break;
                 }
                 var nth = input.getSecondValue();
-                if(nth === 'q') {  // q입력 받으면 종료
+                if(nth === 'q' || nth == "") {  // q or 빈값 입력 받으면 종료
                     break;
                 }
                 result = calculator.calculate(result, opt, nth);
