@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 구현하기</title>
+</head>
+<body>
+    <h1>함수를 활용해 사칙연산 구현</h1>
+    <div id='output'>
+
+    </div>
+    <script>
+        var n = 2;
+
+        function getFirstValue(){
+            var first_num = Number(prompt("첫번째 숫자를 입력하세요"));
+            return first_num;
+        }
+        function getSecondValue(){
+            var nth_num = Number(prompt(n + "번째 수를 입력하세요(종료시 q입력)"));
+            n++;
+            return nth_num;
+        }
+        function getOperator(){
+            var operator = prompt("연산자를 입력하세요(종료시 q입력)");
+            return operator;
+        }
+        function calculate(ret, opt, next){
+            switch(opt){
+                case '+': ret = ret + next; break;
+                case '-': ret = ret - next; break;
+                case '*': ret = ret * next; break;
+                case '/': ret = ret / next; break;
+                default : ret = 'X'
+            }
+            return ret;
+        }
+        function print(ret){
+            var out = document.getElementById('output');
+            if(ret != 'X'){
+                out.innerHTML = "계산결과 : " + ret;
+            } else {
+                out.innerHTML = "계산도중 오류발생!";
+            }
+        }
+        function main(){
+            var result = getFirstValue();  // 첫번째 값 받음
+            while(1){
+                var opt = getOperator();
+                if(opt === 'q') {  // q입력 받으면 종료
+                    break;
+                }
+                var nth = getSecondValue();
+                if(nth === 'q') {  // q입력 받으면 종료
+                    break;
+                }
+                result = calculate(result, opt, nth);
+                if(result === 'X') {
+                    console.log("h2");
+                    break;
+                }
+            }
+            print(result);
+        }
+
+        main();
+    </script>
+</body>
+</html>
