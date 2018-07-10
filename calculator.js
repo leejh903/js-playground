@@ -3,16 +3,19 @@ input.input_value;
 input.input_array = [];
 input.input_length;
 input.input_val = document.getElementById('input_num');
+input.init = function() {
+    input.input_value = input.input_val.value;
+    input.input_array = input.input_value.split(" ");
+    input.input_length = input.input_array.length;
+    cal.result = Number(input.input_array[0]);
+}
 
 var cal = {};
 cal.result;
 cal.cal_num = function() {
-    input.input_value = input.input_val.value;
-    input.input_array = input.input_value.split(" ");
-    input.input_length = input.input_array.length;
-    this.result = Number(input.input_array[0]);
-
-    main();
+    input.init();
+    cal.calculate(input.input_array, input.input_length);
+    output.print();
 };
 
 cal.calculate = function(input_array, input_length) {
@@ -31,10 +34,5 @@ var output = {};
 output.output_box = document.getElementById('output_num');
 output.print = function(){
     output.output_box.value = cal.result;
-}
-
-var main = function(){
-    cal.calculate(input.input_array, input.input_length);
-    output.print();
 }
 
