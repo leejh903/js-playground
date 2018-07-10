@@ -24,7 +24,11 @@
             return nth_num;
         }
         function getOperator(){
-            var operator = prompt("연산자를 입력하세요(종료시 q입력)");
+            while(1){
+                var operator = prompt("연산자를 입력하세요(종료시 q입력)");
+                if(operator === "+" || operator === "-" || operator === "*" || operator === "/" || operator === "q") break;
+                alert("올바른 연산자를 입력해주세요!");
+            }
             return operator;
         }
         function calculate(ret, opt, next){
