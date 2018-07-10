@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 구현하기</title>
+</head>
+<body>
+    <h1>여러값 입력 및 사칙연산 - 반복문</h1>
+    <div id='output'>
+
+    </div>
+    <script>
+        var calculate = function(){
+            var input_array = str.split(" ");
+            var input_length = input_array.length;
+            var ret = Number(input_array[0]);
+            for(var i=1; i<input_length; i=i+2){
+                var next = Number(input_array[i+1]);
+                switch(input_array[i]){
+                    case '+': ret = ret + next; break;
+                    case '-': ret = ret - next; break;
+                    case '*': ret = ret * next; break;
+                    case '/': ret = ret / next; break;
+                }    
+            }
+            return ret;
+        }
+
+        var print = function(ret){
+            var out = document.getElementById('output');
+            out.innerHTML = "계산결과 : " + ret;
+        }
+
+        var str = "";
+
+        while(1){
+            var input_val = prompt("연산할 계산을 입력하세요");
+
+            if(input_val === 'q'){
+                var result = calculate();
+                print(result);
+                break;
+            }
+
+            str += input_val;
+            str += " ";
+        }
+
+    </script>
+</body>
+</html>
