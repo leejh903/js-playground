@@ -1,8 +1,10 @@
 var input = {};
 input.array = [];
+input.parsing = [];
 
 var output = {};
 output.display = document.getElementById('output');
+output.result = 0;
 
 var click_num = function(event){
     var target = event.target.innerHTML;
@@ -25,6 +27,25 @@ var click_num = function(event){
 }
 
 var click_other = function(event){
-    console.log(event.target.innerHTML);
-    console.log("click_other");
+    if(input.array.length === 0) output.display.innerHTML = "no value"; 
+    else {
+        // input.array.unshift(0);
+        input.parsing = input.array.join("").split(" ");
+        output.result = Number(input.parsing.shift());
+        while(input.parsing.length !== 0){
+            output.op = input.parsing.shift();
+            if(input.parsing.length !== 0 && (output.next = Number(input.parsing.shift())) != "") {
+                // output.next = Number(input.parsing.shift());
+                switch(output.op){
+                    case '+': output.result = output.result + output.next; break;
+                    case '-': output.result = output.result - output.next; break;
+                    case '*': output.result = output.result * output.next; break;
+                    case '/': output.result = output.result / output.next; break;
+                }
+        }
+        }
+        output.display.innerHTML = output.result;
+        input.array = [];
+        input.array.push(output.result);
+    }
 }
