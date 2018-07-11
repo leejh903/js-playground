@@ -6,33 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계산기 구현하기</title>
 </head>
+<style>
+    #calculator {
+        width: 400px;
+        background-color: black;
+    }
+    #output {
+        text-align: right;
+        color: white;
+        width: 370px;
+        font-size: 45px;
+        padding: 10px;
+    }
+    button {
+        width: 85px;
+        height: 55px;
+        margin : 5px;
+        font-size: 20px;
+        color: white;
+        border-radius: 30px;
+        background-color: grey;
+    }
+</style>
 <body>
-    <h1>객체를 활용해 사칙연산 구현</h1>
+    <h1 style='margin-left:15px'>JS 계산기</h1>
     <div id='calculator'>
-        <div id='output'></div>
+        <div id='output'>0</div>
         <div>
             <button id='7' onclick='click_num(event)'>7</button>
             <button id='8' onclick='click_num(event)'>8</button>
             <button id='9' onclick='click_num(event)'>9</button>
-            <button id='div' onclick='click_other(event)'>/</button>
+            <button id='div' onclick='click_other(event)' style='background-color:darkorange'>/</button>
         </div>
         <div>
             <button id='4' onclick='click_num(event)'>4</button>
             <button id='5' onclick='click_num(event)'>5</button>
             <button id='6' onclick='click_num(event)'>6</button>
-            <button id='mul' onclick='click_other(event)'>*</button>
+            <button id='mul' onclick='click_other(event)' style='background-color:darkorange'>*</button>
         </div>
         <div>
             <button id='1' onclick='click_num(event)'>1</button>
             <button id='2' onclick='click_num(event)'>2</button>
             <button id='3' onclick='click_num(event)'>3</button>
-            <button id='sub' onclick='click_other(event)'>-</button>
+            <button id='sub' onclick='click_other(event)' style='background-color:darkorange'>-</button>
         </div>
         <div>
             <button id='del' onclick='click_num(event)'>BS</button>
             <button id='0' onclick='click_num(event)'>0</button>
             <button id='eq' onclick='click_num(event)'>=</button>
-            <button id='pls' onclick='click_other(event)'>+</button>
+            <button id='pls' onclick='click_other(event)' style='background-color:darkorange'>+</button>
         </div>
     </div>
     <script src='calculator-gui.js'></script>
