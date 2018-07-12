@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fibo(n) {
+            if (n <= 0) {
+                return 0;
+            }
+            if (n == 1) {
+                return 1;
+            }
+            return fibo(n - 1) + fibo(n - 2);
+        }
+
+        var arr = [0, 1];
+        function fibo_d(n) {
+            if (arr[n] == undefined) {
+                arr[n] = fibo_d(n - 1) + fibo_d(n - 2);
+            }
+            return arr[n];
+        }
+
+        var t1 = Date.now();
+        var x = fibo(42);
+        var t2 = Date.now();
+        console.log("fibo : ", x, t2-t1, "ms");
+
+        t1 = Date.now();
+        x = fibo_d(42);
+        t2 = Date.now();
+        console.log("fibo_d : ", x, t2-t1, "ms");
+    </script>
+</body>
+
+</html>
