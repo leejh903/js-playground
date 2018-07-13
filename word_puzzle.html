@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        p {
+            font-size: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin: 3px;
+        }
+        
+    </style>
 </head>
 <body>
-    <h3>단어 퍼즐 구현하기</h3>
+    <h1>단어 퍼즐 구현하기</h1>
     <div id='puzzle'>
-        <div>
-            <input value="HELLO">
-            <button onclick='WordAdd()'>추가</button>
+        <p id='word1'>HELLO</p>
+        <div id='word2'></div>
+        <div id='btns'>
+            <button onclick='swap(event)'>뒤집기</button>
+            <button onclick='shift(event)'>밀어내기</button>
         </div>
-        <div>
-            <button onclick='WordTurn()'>뒤집기</button>
-            <button onclick='WordPush()'>밀어내기</button>
-        </div>
-        <p id='result'>일치합니다</p>
+        <p id='check'>일치합니다</p>
     </div>
     <script src='word_puzzle.js'></script>
 </body>
