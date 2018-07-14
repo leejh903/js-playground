@@ -19,11 +19,13 @@
 <body>
     <h1>단어 퍼즐 구현하기</h1>
     <div id='puzzle'>
-        <p id='word1'>HELLO</p>
+        <p id='word1'></p>
+        <p id='progress'></p>
         <div id='word2'></div>
         <div id='btns'>
-            <button onclick='swap(event)'>뒤집기</button>
-            <button onclick='shift(event)'>밀어내기</button>
+            <button onclick='game.swap()'>뒤집기</button>
+            <button onclick='game.left_shift()'>왼쪽 밀어내기</button>
+            <button onclick='game.right_shift()'>오른쪽 밀어내기</button>
         </div>
         <p id='check'>일치합니다</p>
     </div>
