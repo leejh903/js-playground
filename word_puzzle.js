@@ -1,6 +1,32 @@
-var str = document.getElementById('word1').innerHTML;
-var str_array = str.split("");
+var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
+var str;
+var str_array;
+var word = ['apple','pineapple','puppy','javascript','iloveyou','bradlee','davidchoi','whiteboard','internet','ipadstand'];
+
+var select_word = function(){
+    var num = Math.floor(Math.random()*10);
+    var selected_word = word[num];
+    word1.innerHTML = selected_word;
+    str = shuffle(word1.innerHTML);
+    str_array = str.split("");
+}
+
+var shuffle = function(word){
+    var word_array = word.split("");
+    var length = word_array.length;
+    var shuffled_word = [];
+    var num;
+    var temp;
+    
+    for(var i=0; i<length; i++){
+        num = Math.floor(Math.random()*(length-i));
+        temp = word_array.splice(num, 1)[0];
+        shuffled_word.push(temp);
+    }
+
+    return shuffled_word.join("");
+}
 
 var create_btn = function(){
     for(var i=0; i<str.length; i++){
@@ -58,6 +84,7 @@ var check_str = function(){
 }
 
 var main = function(){
+    select_word();
     create_btn();
 }
 
