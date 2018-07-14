@@ -32,7 +32,14 @@ var swap = function(event){
     check_str();
 }
 
-var shift = function(){
+var left_shift = function(){
+    var temp = str_array.shift();
+    str_array.push(temp);
+    str = str_array.join("");
+    change_btn();
+    check_str();
+}
+var right_shift = function(){
     var temp = str_array.pop();
     str_array.unshift(temp);
     str = str_array.join("");
