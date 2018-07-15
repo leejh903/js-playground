@@ -1,21 +1,22 @@
-game = {};
-game.answer;
-game.answer_array;
-game.progress = "";
-game.progress_num = 0;
+// html element
 var progress = document.getElementById('progress');
 var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
-var word = ['apple','pineapple','puppy','javascript','iloveyou','bradlee','davidchoi','whiteboard','internet','ipadstand'];
 
+// game object
+game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0};
+game.word = ['apple','pineapple','puppy','javascript','iloveyou','bradlee','davidchoi','whiteboard','internet','ipadstand'];
+
+// choose 1 word from words
 game.select_word = function(){
-    var num = Math.floor(Math.random()*word.length);
-    var selected_word = word[num];
+    var num = Math.floor(Math.random()*this.word.length);
+    var selected_word = this.word[num];
     word1.innerHTML = selected_word;
     this.answer = word1.innerHTML;
     this.answer_array = this.answer.split("");
 };
 
+// shuffle word arragement
 game.shuffle = function(){
     var toggle = Math.floor(Math.random() * 2) === 1;
     if(toggle) game.swap();
@@ -25,6 +26,7 @@ game.shuffle = function(){
     for(var i=0; i<n; i++) game.right_shift();
 };
 
+// create button on html element('word2')
 game.create_btn = function(){
     for(var i=0; i<this.answer.length; i++){
         var btn = document.createElement('button');
@@ -33,13 +35,15 @@ game.create_btn = function(){
     }
 };
 
+// remove button on html element('word2')
 game.remove_btn = function(){
 for(var i=0; i<this.answer.length; i++){
     word2.removeChild(word2.childNodes[0]);
 }
 };
 
-game.change_btn = function(){
+// update button on html element('word2')
+game.update_btn = function(){
     var child = document.getElementById("word2").firstChild;
     for(var i=0; i<this.answer.length; i++){
         child.innerHTML = this.answer[i];
@@ -47,6 +51,7 @@ game.change_btn = function(){
     }
 };
 
+// game function1 : swap
 game.swap = function(){
     var temp_array = [];
     var temp;
@@ -57,25 +62,27 @@ game.swap = function(){
     this.answer_array = temp_array;
     this.answer = this.answer_array.join("");
     
-    game.change_btn();
+    game.update_btn();
     game.check_str();
 };
 
+// game function2 : left_shift, right_shift
 game.left_shift = function(){
     var temp = this.answer_array.shift();
     this.answer_array.push(temp);
     this.answer = this.answer_array.join("");
-    game.change_btn();
+    game.update_btn();
     game.check_str();
 };
 game.right_shift = function(){
     var temp = this.answer_array.pop();
     this.answer_array.unshift(temp);
     this.answer = this.answer_array.join("");
-    game.change_btn();
+    game.update_btn();
     game.check_str();
 };
 
+// compare answer word with btn words
 game.check_str = function(){
     var target = document.getElementById('word1').innerHTML;
     var display_check = document.getElementById('check');
@@ -87,23 +94,25 @@ game.check_str = function(){
     }
 };
 
+// show progress_status
 game.game_progress = function(){
     game.progress_num++;
     game.progress += "O "
     progress.innerHTML = game.progress;
     if(game.progress_num < 3){
         game.remove_btn();
-        NewGame();
+        game.init();
     } else {
         game.progress = "Thank you for playing!"
         progress.innerHTML = game.progress;
     }
 }
 
-var NewGame = function(){
+// init function for game start
+game.init = function(){
     game.select_word();
     game.create_btn();
     game.shuffle();
 }
 
-NewGame();
+game.init();
