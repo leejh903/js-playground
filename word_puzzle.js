@@ -2,6 +2,7 @@
 var progress = document.getElementById('progress');
 var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
+var time = document.getElementById('time');
 
 // game object
 game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0, 'max_play':3, 'start_time':0, 'end_time':0};
@@ -104,6 +105,7 @@ game.game_progress = function(){
         game.init();
     } else {
         game.end_time = Date.now();
+        clearInterval(x);
         alert("총 결과시간: " + (game.end_time - game.start_time)/1000 + "초, Thank you for playing!!");
     }
 }
@@ -115,5 +117,11 @@ game.init = function(){
     game.shuffle();
 }
 
+display_time = function(){
+    var time_flow = (Date.now() - game.start_time)/1000;
+    time.innerHTML = time_flow + " s";
+}
+
 game.init();
 game.start_time = Date.now();
+var x = setInterval(display_time, 50);
