@@ -4,7 +4,7 @@ var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
 
 // game object
-game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0};
+game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0, 'max_play':5};
 game.word = ['apple','pineapple','puppy','javascript','iloveyou','bradlee','davidchoi','whiteboard','internet','ipadstand'];
 
 // choose 1 word from words
@@ -51,7 +51,7 @@ game.update_btn = function(){
     }
 };
 
-// game function1 : swap
+// event handler for swap button
 game.swap = function(){
     var temp_array = [];
     var temp;
@@ -66,7 +66,7 @@ game.swap = function(){
     game.check_str();
 };
 
-// game function2 : left_shift, right_shift
+// event handler for left_shift button and right_shift button
 game.left_shift = function(){
     var temp = this.answer_array.shift();
     this.answer_array.push(temp);
@@ -99,12 +99,11 @@ game.game_progress = function(){
     game.progress_num++;
     game.progress += "O "
     progress.innerHTML = game.progress;
-    if(game.progress_num < 3){
+    if(game.progress_num < game.max_play){
         game.remove_btn();
         game.init();
     } else {
-        game.progress = "Thank you for playing!"
-        progress.innerHTML = game.progress;
+        alert("Thank you for playing!");
     }
 }
 
