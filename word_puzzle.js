@@ -4,7 +4,7 @@ var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
 
 // game object
-game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0, 'max_play':5};
+game = {'answer':"", 'answer_array':[], 'progress':"", 'progress_num':0, 'max_play':3, 'start_time':0, 'end_time':0};
 game.word = ['apple','pineapple','puppy','javascript','iloveyou','bradlee','davidchoi','whiteboard','internet','ipadstand'];
 
 // choose 1 word from words
@@ -103,7 +103,8 @@ game.game_progress = function(){
         game.remove_btn();
         game.init();
     } else {
-        alert("Thank you for playing!");
+        game.end_time = Date.now();
+        alert("총 결과시간: " + (game.end_time - game.start_time)/1000 + "초, Thank you for playing!!");
     }
 }
 
@@ -115,3 +116,4 @@ game.init = function(){
 }
 
 game.init();
+game.start_time = Date.now();
